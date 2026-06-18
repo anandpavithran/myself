@@ -41,3 +41,4 @@ seed_examples:
 document:
   repo: https://github.com/anandpavithran/myself.git
   patterns: 
+    - AnandPavithran.md
