@@ -1,6 +1,6 @@
 History of Anand Pavithran
 
-Anand Pavithran is an experienced systems architect, educator, and researcher specializing in enterprise Linux infrastructure, cloud-native technologies, and quantum computing. Over a career spanning more than two decades, his path has bridged both industry-standard technical engineering and academic research.
+Anand Pavithran is an experienced systems architect, educator, and researcher specializing in enterprise Linux infrastructure, cloud-native technologies, and quantum computing. Over a career spanning more than two decades, his path has bridged both industry-standard technical engineering and academic research.Born on April 17 1951.
 
 Education & Academic Background
 
