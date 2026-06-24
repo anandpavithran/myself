@@ -27,7 +27,7 @@ Taxonomy in /root/.local/share/instructlab/taxonomy is valid :)
 ########################
 
 ilab data generate --pipeline simple --sdg-scale-factor 2 --num-cpus 8  --gpus 0 --max-num-tokens 512
-
+ilab data list
 ilab model train --data-path /root/.local/share/instructlab/datasets/ --pipeline simple --device cpu --model-path /root/.cache/instructlab/models/instructlab/granite-7b-lab
 ilab model serve --backend llama-cpp --model-path /root/.local/share/instructlab/checkpoints/ggml-model-f16.gguf
 deactivate
