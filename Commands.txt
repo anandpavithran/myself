@@ -1,0 +1,40 @@
+######################################################WORKED STEPSON FEDORA 40########################
+dnf install python3.11 -y
+mkdir instructlab 
+cd instructlab
+python3.11 -m venv venv
+ source venv/bin/activate
+ dnf install gcc gcc-c++ make git python3.11 python3.11-devel clang pip mesa-libGL  -y
+ CC=clang CXX=clang++ CMAKE_ARGS="-DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DLLAVA_BUILD=off" pip install llama-cpp-python --no-cache-dir --force-reinstall
+ pip install instructlab-training --no-cache-dir
+ pip install instructlab --upgrade-strategy only-if-needed
+ pip install "docling==2.29.0" "docling-core==2.26.1" numpy==1.26.4 "instructlab-sdg>=0.8.3" "opencv-python<4.11" "rich<14.0.0" "jiter<0.11" hf_transfer
+ ilab config init
+##############
+podman cp models/ test1:/root/.cache/instructlab/
+
+ OR
+ 
+ilab model download --repository instructlab/granite-7b-lab
+###########################
+(venv) [root@5b9b14ac9b1e instructlab]# ilab taxonomy diff
+Taxonomy in /root/.local/share/instructlab/taxonomy is valid :)
+(venv) [root@5b9b14ac9b1e instructlab]# mkdir -p /root/.local/share/instructlab/taxonomy/knowledge/biography/anandpavithran
+(venv) [root@5b9b14ac9b1e instructlab]# cp myself/qna.yaml /root/.local/share/instructlab/taxonomy/knowledge/biography/anandpavithran/
+(venv) [root@5b9b14ac9b1e instructlab]# ilab taxonomy diff
+knowledge/biography/anandpavithran/qna.yaml
+Taxonomy in /root/.local/share/instructlab/taxonomy is valid :)
+########################
+
+ilab data generate --pipeline simple --sdg-scale-factor 2 --num-cpus 8  --gpus 0 --max-num-tokens 512
+
+ilab model train --data-path /root/.local/share/instructlab/datasets/ --pipeline simple --device cpu --model-path /root/.cache/instructlab/models/instructlab/granite-7b-lab
+ilab model serve --backend llama-cpp --model-path /root/.local/share/instructlab/checkpoints/ggml-model-f16.gguf
+deactivate
+
+In another terminal go to the virtual ENV
+
+ilab model chat --model /root/.local/share/instructlab/checkpoints/ggml-model-f16.gguf
+
+
+###########Questions################################
